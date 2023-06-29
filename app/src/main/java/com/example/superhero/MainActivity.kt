@@ -41,8 +41,8 @@ fun SuperheroesApp() {
         topBar = {
             SuperHeroesTopAppBar()
         }
-    ) { it ->
-        SuperHeroList(HeroRepository.heroes, Modifier.padding(it))
+    ) { innerPadding ->
+        SuperHeroList(HeroRepository.heroes, Modifier.padding(innerPadding))
     }
 }
 
