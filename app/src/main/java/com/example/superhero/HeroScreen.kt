@@ -31,6 +31,7 @@ fun SuperHeroList(heroes: List<Hero>, modifier: Modifier = Modifier) {
     LazyColumn(modifier = modifier) {
         itemsIndexed(heroes) { index: Int, hero: Hero ->
             SuperHeroCard(
+                index = index,
                 hero = hero,
                 modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
             )
@@ -40,6 +41,7 @@ fun SuperHeroList(heroes: List<Hero>, modifier: Modifier = Modifier) {
 
 @Composable
 fun SuperHeroCard(
+    index: Int,
     hero: Hero,
     modifier: Modifier = Modifier
 ) {
@@ -72,7 +74,14 @@ fun SuperHeroCard(
                 Image(
                     painter = painterResource(id = hero.imageRes),
                     contentDescription = stringResource(
-                        id = R.string.description1
+                        id = when (index) {
+                            0 -> R.string.description1
+                            1 -> R.string.description2
+                            2 -> R.string.description3
+                            3 -> R.string.description4
+                            4 -> R.string.description5
+                            else -> R.string.description6
+                        }
                     ),
                 )
             }
